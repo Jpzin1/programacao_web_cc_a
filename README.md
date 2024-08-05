@@ -1,2 +1,2 @@
-# Programção Web Turma A
+# Programação Web Turma A
 Repositório de Programação Web
