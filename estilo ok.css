@@ -1,0 +1,9 @@
+#titulo {
+    color: gray;
+    text-align: center;
+    margin-top: 50vh;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 20px;
+    border-width: 2px;
+}
