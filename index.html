@@ -9,11 +9,27 @@
 <body>
     <h1 id="titulo">Formulário de informações pessoais</h1>
     <div class="entradas-formulario">
-        <input type="text" placeholder="Nome">
-        <input type="number" placeholder="Idade">
-        <input type="text" placeholder="CPF">
-        <a href="ok.html"><button>Ok!</button>
+        <input type="text" id="Nome" placeholder="Nome">
+        <input type="number" id="Idade" placeholder="Idade">
+        <input type="text" id="CPF" placeholder="CPF">
+        <button id="loginButton">Ok!</button>
     </div>
+    <div id="message" class="message"></div>
     <footer class="rodape">Criado por João Pedro Holanda</footer>
+
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function() {
+            const Nome = document.getElementById('Nome').value;
+            const Idade = document.getElementById('Idade').value;
+            const CPF = document.getElementById('CPF').value;
+
+            if (Nome === 'João Pedro' && Idade === '19' && CPF === '123123123') {
+                document.getElementById('message').innerText = "Formulário enviado";
+                window.location.href = 'ok.html';
+            } else {
+                document.getElementById('message').innerText = "Nome, CPF ou idade incorretos!";
+            }
+        });
+    </script>
 </body>
 </html>
