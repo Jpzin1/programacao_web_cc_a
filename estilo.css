@@ -1,5 +1,5 @@
 #titulo {
-    color: gray;
+    color: pink;
     text-align: center; /* Alinha o texto no centro */
     margin-top: -50vh;
 }
@@ -8,15 +8,7 @@
     display: flex; /* Permite o uso de flexbox*/
     flex-direction: column; /* Organizar os itens em coluna */
     align-items: center; /* Alinha os itens horizontalmente */
-    margin-top: 10vh;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #000000;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: gray;
-    background-clip: padding-box;
-    box-sizing: border-box;
+    flex-grow: 10; /* Faz com que a div cresça e ocupa o espaço disponivel */
 }
 
 .rodape {
@@ -39,42 +31,8 @@ body {
     height: 100vh; /* Define a altura como 100% da altura da janela */
     margin: 0; /* Remove as margens padrão */
 }
-input[type="text"] {
+
+input {
     margin: 5px 0; /* Adiciona espaçamento de 5px entre cada input */
-    border: 2px solid #000;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: gray;
-}
-input[type="number"] {
-    border: 5px 0;
-    border: 2px solid #ccc; /* Border define uma borda, e o 2 px define a expressura da borda */
-    border-radius: 8px; /* Border-radius é o que vai arredondar o input */
-    padding: 10px; /* Define o espaço interno entre o conteúdo do elemento */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Box-shadow adiciona uma sombra ao redor 
-    0 Deslocamento horizontal da sombra
-    4px o deslocamento vertical da sombra
-    6px o desfoque da sombra */
-    background-color: gray;
-    border: 2px solid #000;
-}
-button {
-    margin: 5px 0;
-    background-color: rgb(14, 13, 13);
-    color: rgb(255, 255, 255);
-    border: none; /* Remove a borda padrão*/
-    border-radius: 5px; 
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer; /* Cursor pointer é basicamente para poder clicar no botão */
-}
-button:hover { /* button:hover adiciona efeito no botão*/
-    background-color: dimgrey;
-    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão */
 }
 
-::placeholder {
-    color: #000;
-}
