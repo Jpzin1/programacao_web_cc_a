@@ -1,5 +1,5 @@
 #titulo {
-    color: gray;
+    color: rgb(0, 0, 0);
     text-align: center; /* Alinha o texto no centro */
     margin-top: -50vh;
 }
@@ -27,7 +27,7 @@
     border: 1px solid; /* Adiciona uma borda sólida de 1 pixel */
     padding: 10px; /* Adiciona 10px ao redor do conteúdo */
     text-align: left; /* Alinha o texto à esquerda */
-    background-color: #ccc; /* Define a cor de fundo */
+    background-color: gray; /* Define a cor de fundo */
     box-sizing: border-box;
 }
 
@@ -38,6 +38,7 @@ body {
     justify-content: center;
     height: 100vh; /* Define a altura como 100% da altura da janela */
     margin: 0; /* Remove as margens padrão */
+    background-color: rgb(73, 76, 78);
 }
 input[type="text"] {
     margin: 5px 0; /* Adiciona espaçamento de 5px entre cada input */
