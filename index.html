@@ -20,14 +20,11 @@
     <script>
         document.getElementById('loginButton').addEventListener('click', function() {
             const Nome = document.getElementById('Nome').value;
-            const Idade = document.getElementById('Idade').value;
-            const CPF = document.getElementById('CPF').value;
 
-            if (Nome === 'João Pedro' && Idade === '19' && CPF === '123123123') {
-                document.getElementById('message').innerText = "Formulário enviado";
-                window.location.href = 'ok.html';
+            if (Nome) {
+                window.location.href = `ok.html?name=${encodeURIComponent(Nome)}`;
             } else {
-                document.getElementById('message').innerText = "Nome, CPF ou idade incorretos!";
+                document.getElementById('message').innerText = "Por favor, insira seu nome!";
             }
         });
     </script>

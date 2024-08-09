@@ -3,22 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmação dos dados</title>
-    <link rel="stylesheet" href="estilo ok.css">
+    <title>Parabéns!</title>
+    <link rel="stylesheet" href="estilo.css">
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            background-color: gray;
+        }
+
+        h1 {
+            margin: 20px;
+        }
+
+        p {
+            margin: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
         img {
-            width: 400px ;
-            height: auto;
-            border: 1px solid gray ;
-            display: block;
-            margin: 20px auto;
-            
+            width: 300px;
+            height: 300px;
+            border: 1px solid gray;
+            margin: 20px;
+            object-fit: cover; 
         }
     </style>
-
 </head>
 <body>
-    <h1 id="titulo">INFORMAÇÕES ENVIADAS!</h1>
-    <img src="asserts/img/imagem.png" alt="LUIZ EDUARDO">
+    <h1 id="titulo">Formulário enviado</h1>
+    <p id="mensagem"></p>
+    <img src="asserts/img/imagem.png" alt="Imagem de Parabéns">
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const nome = urlParams.get('name');
+
+        if (nome) {
+            document.getElementById('mensagem').innerText = `Parabéns, ${nome}! Seus dados foram enviados com sucesso.`;
+        } else {
+            document.getElementById('mensagem').innerText = `Parabéns! Seus dados foram enviados com sucesso.`;
+        }
+    </script>
 </body>
 </html>
