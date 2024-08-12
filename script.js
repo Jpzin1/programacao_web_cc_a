@@ -1,3 +1,5 @@
+/* Função para o usuario colocar o nome dele, caso ele nao digite o nome*/
+
 document.getElementById('loginButton').addEventListener('click', function() {
     const Nome = document.getElementById('Nome').value;
 
@@ -16,11 +18,16 @@ document.getElementById('Nome').addEventListener('input', function() {
 
 });
 
-/* permitir apenas numeros no input de cpf */
+/* Função para que o cpf permita apenas 11 numeros e apenas numeros */
 
 document.getElementById('CPF').addEventListener('input', function() {
 let cpf = this.value.replace(/\D/g,''); /* Remover qualquer caracteres não numericos */
-if(cpf.length <= 11) {
+
+if (cpf.length > 11) {
+    cpf = cpf.slice(0, 11);
+}
+
+if (cpf.length <= 11) {
     cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
     cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
     cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
@@ -29,10 +36,17 @@ if(cpf.length <= 11) {
 this.value = cpf;
 
 });
+
 /* permitir apenas numeros no input de idade */
 
 document.getElementById('Idade').addEventListener('input', function() {
-    this.value = this.value.replace(/[^0-9]/g, '');
+    let idade = this.value.replace(/\D/g, '');
 
+if (idade.length > 2) {
+    idade = idade.slice(0, 2);
+
+}
+
+this.value = idade;
 
 });
