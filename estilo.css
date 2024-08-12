@@ -12,11 +12,11 @@
     border-width: 2px;
     border-style: solid;
     border-color: #000000;
-    border-radius: 10px;
+    border-radius: 10px; /* Adiciona aredondamento na borda */
     padding: 20px;
     background-color: gray;
-    background-clip: padding-box;
-    box-sizing: border-box;
+    background-clip: padding-box; /* Aplica cor no fundo apenas no padding */
+    box-sizing: border-box; /* Altera o modelo de caixa padrao do CSS e também altera a borda e padding juntos*/
 }
 
 .rodape {
@@ -40,7 +40,7 @@ body {
     margin: 0; /* Remove as margens padrão */
     background-color: rgb(73, 76, 78);
 }
-input[type="text"] {
+input {
     margin: 5px 0; /* Adiciona espaçamento de 5px entre cada input */
     border: 2px solid #000;
     border-radius: 8px;

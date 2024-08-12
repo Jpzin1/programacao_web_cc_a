@@ -11,7 +11,7 @@
     <div class="entradas-formulario">
         <input type="text" id="Nome" placeholder="Nome">
         <input type="number" id="Idade" placeholder="Idade">
-        <input type="text" id="CPF" placeholder="CPF">
+        <input type="number" id="CPF" placeholder="CPF">
         <button id="loginButton">Ok!</button>
     </div>
     <div id="message" class="message"></div>
@@ -27,6 +27,30 @@
                 document.getElementById('message').innerText = "Por favor, insira seu nome!";
             }
         });
+
+        /* permitir apenas letras no input de nome */
+
+        document.getElementById('Nome').addEventListener('input', function() {
+            this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+        
+
+    });
+
+        /* permitir apenas numeros no input de cpf */
+
+        document.getElementById('CPF').addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        
+
+    });
+        /* permitir apenas numeros no input de idade */
+
+        document.getElementById('Idade').addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        
+
+    });
+
     </script>
 </body>
 </html>
