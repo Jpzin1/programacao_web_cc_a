@@ -44,16 +44,6 @@
     <p id="mensagem"></p>
     <img src="asserts/img/imagem.png" alt="Imagem de Parabéns">
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const nome = urlParams.get('name');
-
-        if (nome) {
-            document.getElementById('mensagem').innerText = `Parabéns, ${nome}! Seus dados foram enviados com sucesso.`;
-        } else {
-            document.getElementById('mensagem').innerText = `Parabéns! Seus dados foram enviados com sucesso.`;
-        }
-        
-    </script>
+    <script src="script ok.js"></script>
 </body>
 </html>
