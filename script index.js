@@ -1,52 +1,59 @@
-/* Função para o usuario colocar o nome dele, caso ele nao digite o nome*/
+// Função para o usuário colocar o nome, idade ou cpf dele, caso ele não digite o algum desses
 
 document.getElementById('loginButton').addEventListener('click', function() {
-    const Nome = document.getElementById('Nome').value;
+    const nome = document.getElementById('Nome').value;
+    const cpf = document.getElementById('CPF').value;
+    const idade = document.getElementById('Idade').value;
+    let errorMessage = '';
 
-    if (Nome) {
-        window.location.href = `ok.html?name=${encodeURIComponent(Nome)}`;
+    if (!nome) {
+        errorMessage += "Por favor, insira seu nome!\n";
+    }
+
+    if (!cpf || cpf.replace(/\D/g, '').length !== 11) {
+        errorMessage += "Por favor, insira seu CPF corretamente!\n";
+    }
+
+    if (!idade) {
+        errorMessage += "Por favor, insira sua idade!\n";
+    }
+
+    if (errorMessage) {
+        document.getElementById('message').innerText = errorMessage;
     } else {
-        document.getElementById('message').innerText = "Por favor, insira seu nome!";
+        window.location.href = `ok.html?name=${encodeURIComponent(nome)}&CPF=${encodeURIComponent(cpf)}&idade=${encodeURIComponent(idade)}`;
     }
 });
 
-/* permitir apenas letras no input de nome */
-
+// Permitir apenas letras no input de nome
 document.getElementById('Nome').addEventListener('input', function() {
-    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-
-
+    this.value = this.value.replace(/[^a-zA-Z\u00C0-\u017F\s]/g, '');
 });
 
-/* Função para que o cpf permita apenas 11 numeros e apenas numeros */
-
+// Permitir apenas 11 números e apenas números no input de CPF
 document.getElementById('CPF').addEventListener('input', function() {
-let cpf = this.value.replace(/\D/g,''); /* Remover qualquer caracteres não numericos */
+    let cpf = this.value.replace(/\D/g, ''); // Remover qualquer caractere não numérico
 
-if (cpf.length > 11) {
-    cpf = cpf.slice(0, 11);
-}
+    if (cpf.length > 11) {
+        cpf = cpf.slice(0, 11);
+    }
 
-if (cpf.length <= 11) {
-    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-}
+    if (cpf.length <= 11) {
+        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+        cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    }
 
-this.value = cpf;
-
+    this.value = cpf;
 });
 
-/* permitir apenas numeros no input de idade */
-
+// Permitir apenas números no input de idade
 document.getElementById('Idade').addEventListener('input', function() {
     let idade = this.value.replace(/\D/g, '');
 
-if (idade.length > 2) {
-    idade = idade.slice(0, 2);
+    if (idade.length > 2) {
+        idade = idade.slice(0, 2);
+    }
 
-}
-
-this.value = idade;
-
+    this.value = idade;
 });
