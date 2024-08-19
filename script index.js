@@ -1,9 +1,9 @@
-// Função para o usuário colocar o nome, idade ou cpf dele, caso ele não digite o algum desses
-
 document.getElementById('loginButton').addEventListener('click', function() {
     const nome = document.getElementById('Nome').value;
     const cpf = document.getElementById('CPF').value;
     const idade = document.getElementById('Idade').value;
+    const email = document.getElementById('Email').value;
+
     let errorMessage = '';
 
     if (!nome) {
@@ -18,10 +18,15 @@ document.getElementById('loginButton').addEventListener('click', function() {
         errorMessage += "Por favor, insira sua idade!\n";
     }
 
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailPattern.test(email)) {
+        errorMessage += "Por favor, insira um e-mail válido!\n";
+    }
+
     if (errorMessage) {
         document.getElementById('message').innerText = errorMessage;
     } else {
-        window.location.href = `ok.html?name=${encodeURIComponent(nome)}&CPF=${encodeURIComponent(cpf)}&idade=${encodeURIComponent(idade)}`;
+        window.location.href = `ok.html?name=${encodeURIComponent(nome)}&CPF=${encodeURIComponent(cpf)}&idade=${encodeURIComponent(idade)}&Email=${encodeURIComponent(email)}`;
     }
 });
 
