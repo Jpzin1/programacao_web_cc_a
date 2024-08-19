@@ -1,34 +1,40 @@
+///////////////////////////////// Validação de tudo ///////////////////////////////////
+
 document.getElementById('loginButton').addEventListener('click', function() {
     const nome = document.getElementById('Nome').value;
     const cpf = document.getElementById('CPF').value;
     const idade = document.getElementById('Idade').value;
     const email = document.getElementById('Email').value;
 
-    let errorMessage = '';
+    let formIsValid= true;
 
     if (!nome) {
-        errorMessage += "Por favor, insira seu nome!\n";
+        alert("Por favor, insira seu nome!\n");
+        formIsValid = false;
     }
 
     if (!cpf || cpf.replace(/\D/g, '').length !== 11) {
-        errorMessage += "Por favor, insira seu CPF corretamente!\n";
+        alert("Por favor, insira seu CPF corretamente!\n");
+        formIsValid = false;
     }
 
     if (!idade) {
-        errorMessage += "Por favor, insira sua idade!\n";
+        alert("Por favor, insira sua idade!\n");
+        formIsValid = false;
     }
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!email || !emailPattern.test(email)) {
-        errorMessage += "Por favor, insira um e-mail válido!\n";
+        alert("Por favor, insira um e-mail válido!\n");
+        formIsValid = false;
     }
 
-    if (errorMessage) {
-        document.getElementById('message').innerText = errorMessage;
-    } else {
+    if (formIsValid) {
         window.location.href = `ok.html?name=${encodeURIComponent(nome)}&CPF=${encodeURIComponent(cpf)}&idade=${encodeURIComponent(idade)}&Email=${encodeURIComponent(email)}`;
     }
 });
+
+//////////////////////// Restrições de caracteres ////////////////////////////////////////
 
 // Permitir apenas letras no input de nome
 document.getElementById('Nome').addEventListener('input', function() {
